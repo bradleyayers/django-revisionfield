@@ -1,6 +1,8 @@
 # -*- coding: utf8 -*-
-# major, minor, bugfix, [ "pre-alpha" | "alpha" | "beta" | "final"]
-VERSION = (0, 1, 0, 'alpha', 1)
+# (major, minor, bugfix, "pre-alpha" | "alpha" | "beta" | "final" | "",
+#  release | "")
+VERSION = (0, 1, 0, 'alpha', '')
+
 
 def get_version():
     version = '%s.%s' % (VERSION[0], VERSION[1])
@@ -12,6 +14,7 @@ def get_version():
         if VERSION[3] != 'final':
             version = '%s %s %s' % (version, VERSION[3], VERSION[4])
     return version
+
 
 # We want to make get_version() available to setup.py even if Django is not
 # available or we are not inside a Django project.

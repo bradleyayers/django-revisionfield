@@ -1,5 +1,8 @@
 # -*- coding: utf8 -*-
-from distutils.core import setup
+try:
+    from setuptools import develop
+except ImportError:
+    from distutils.core import setup
 from distutils.command.install_data import install_data
 from distutils.command.install import INSTALL_SCHEMES
 import os
