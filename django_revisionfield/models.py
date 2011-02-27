@@ -1,5 +1,5 @@
 # -*- coding: utf8 -*-
-from django.db import models
+from django.db import models, connection
 
 
 class RevisionField(models.IntegerField):
