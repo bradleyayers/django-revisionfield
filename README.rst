@@ -1,8 +1,6 @@
 django-revisionfield
 ====================
 
-At the moment it only works with PostgreSQL.
-
 Usage
 -----
 
@@ -17,3 +15,9 @@ Usage
         name = models.CharField(max_length=200)
         revision = RevisionField()
 
+
+Limitations
+-----------
+
+* Only works with PostgreSQL.
+* Doesn't support Django projects that make use of multiple databases.

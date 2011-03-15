@@ -1,6 +1,6 @@
 *.pyc
-*.komodoproject
-MANIFEST
+/MANIFEST
+/*.komodoproject
+/*.egg-info/
 /dist/
 /build/
-/django_revisionfield.egg-info/
