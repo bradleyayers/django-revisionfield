@@ -61,3 +61,27 @@ class RevisionField(models.IntegerField):
     def pre_save(self, model_instance, add):
         "Returns field's value just before saving."
         return self._next_revision()
+
+
+try:
+    from south.modelsinspector import add_introspection_rules
+except ImportError:
+    pass
+else:
+    add_introspection_rules([
+            (
+                (RevisionField,),
+                [],
+                {
+                    'db_sequence': ['db_sequence', {'default': None}],
+                    # The rest of these let South know what the default values
+                    # are that this field uses. By doing this it won't include a
+                    # bunch of extra arguments in the migration.
+                    'unique': ['unique', {'default': True}],
+                    'default': ['default', {'ignore_if': '_suppress_default'}],
+                    'db_index': ['db_index', {'default': True}],
+                }
+            )
+        ],
+        ["^django_revisionfield\.models\."]
+    )
