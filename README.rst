@@ -4,9 +4,7 @@ django-revisionfield
 Usage
 -----
 
-1. Just import the field and use it on a model.
-
-.. code-block:: python
+1. Just import the field and use it on a model::
 
     from django.db import models
     from django_revisionfield import RevisionField
