@@ -1,4 +1,6 @@
 *.pyc
+/.env
+/*.egg
 /MANIFEST
 /*.komodoproject
 /*.egg-info/

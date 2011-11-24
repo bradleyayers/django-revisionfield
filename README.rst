@@ -4,7 +4,7 @@ django-revisionfield
 Usage
 -----
 
-1. Just import the field and use it on a model::
+Import the field and use it on a model::
 
     from django.db import models
     from django_revisionfield import RevisionField
@@ -14,8 +14,11 @@ Usage
         revision = RevisionField()
 
 
+Every time the model is saved, its revision will be updated. The current
+implementation uses a *global* revision, thus values may jump unexpectedly (due
+to other models being saved).
+
 Limitations
 -----------
 
-* Only works with PostgreSQL.
-* Doesn't support Django projects that make use of multiple databases.
+Don't know any, let me know if you find something!

@@ -1,1 +1,1 @@
-from .models import RevisionField
+from .fields import RevisionField
