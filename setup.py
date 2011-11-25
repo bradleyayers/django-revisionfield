@@ -4,7 +4,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='django-revisionfield',
-    version='0.2.0',
+    version='0.2.1',
     description = 'An model field that auto increments every time the model is'
                   ' saved',
 

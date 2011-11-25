@@ -6,7 +6,7 @@ os.environ['DJANGO_SETTINGS_MODULE'] = 'tests.app.settings'
 from attest import Tests
 from django_attest import TestContext, FancyReporter
 from django_revisionfield.models import Revision
-from .app.models import Person
+from .app.models import Company, Person
 
 
 loader = FancyReporter.test_loader
@@ -29,3 +29,26 @@ def saving_model_should_increment_revision():
     person.name = "Sunny"
     person.save()
     assert person.revision > revision
+
+
+@everything.test
+def specifying_field_should_only_increment_revision_if_field_changes():
+    company = Company.objects.create(name="brad pty ltd")
+    name_revision = company.name_revision
+    company.name = "chris pty ltd"
+    company.save()
+    assert company.name_revision > name_revision
+    name_revision = company.name_revision
+    company.address = "brisbane"
+    company.save()
+    assert company.name_revision == name_revision
+    name_revision = company.name_revision
+    company.save()
+    assert name_revision == company.name_revision
+    company.address = "sydney"
+    company.save()
+    assert name_revision == company.name_revision
+    company.name = "sunny pty ltd"
+    company.save()
+    assert company.name_revision > name_revision
+
