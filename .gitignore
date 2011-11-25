@@ -1,4 +1,5 @@
 *.pyc
+/reports
 /.env
 /*.egg
 /MANIFEST

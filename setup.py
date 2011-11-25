@@ -4,7 +4,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='django-revisionfield',
-    version='0.2.1',
+    version='0.2.2',
     description = 'An model field that auto increments every time the model is'
                   ' saved',
 
@@ -16,7 +16,8 @@ setup(
     packages=find_packages(),
 
     install_requires=['Django >=1.2'],
-    tests_require=['Django >=1.2', 'Attest >=0.4', 'django-attest >=0.2.2'],
+    tests_require=['Django >=1.2', 'Attest >=0.4', 'django-attest >=0.2.2',
+                   'unittest-xml-reporting'],
 
     test_loader='tests:loader',
     test_suite='tests.everything',

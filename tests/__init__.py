@@ -18,7 +18,6 @@ everything.context(TestContext())
 def creating_model_instance_should_use_new_revision():
     current_revision = Revision.next()
     person = Person.objects.create(name="Brad")
-    print person.revision, current_revision
     assert person.revision > current_revision
 
 
@@ -52,3 +51,31 @@ def specifying_field_should_only_increment_revision_if_field_changes():
     company.save()
     assert company.name_revision > name_revision
 
+
+# -----------------------------------------------------------------------------
+
+
+junit = Tests()
+
+@junit.test
+def make_junit_output():
+    import xmlrunner
+    runner = xmlrunner.XMLTestRunner(output=b"reports")
+    runner.run(everything.test_suite())
+
+
+# -----------------------------------------------------------------------------
+
+
+pylint = Tests()
+
+@pylint.test
+def make_pylint_output():
+    from os.path import expanduser
+    from pylint.lint import Run
+    from pylint.reporters.text import ParseableTextReporter
+    if not os.path.exists('reports'):
+        os.mkdir('reports')
+    with open('reports/pylint.report', 'wb') as handle:
+        args = ['django_revisionfield', 'tests']
+        Run(args, reporter=ParseableTextReporter(output=handle), exit=False)
