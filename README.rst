@@ -1,8 +1,9 @@
+====================
 django-revisionfield
 ====================
 
 Usage
------
+=====
 
 Import the field and use it on a model::
 
@@ -20,7 +21,7 @@ to other models being saved).
 
 
 Use with fixtures
------------------
+=================
 
 Due to the way the auto incrementing is implemented (via ``Field.pre_save``), a
 value for all ``RevisionField`` fields must be defined for objects in fixtures.
@@ -52,3 +53,12 @@ Consider the following::
 By setting ``Revision.number`` to ``1``, the next time an object is saved its
 revision will be ``2``, thus avoiding any ``IntegrityError`` exceptions due to
 uniqueness contraints.
+
+
+Changelog
+=========
+
+v0.2.3
+------
+
+- Remove Attest from requirements

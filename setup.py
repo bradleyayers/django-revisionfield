@@ -1,12 +1,12 @@
-# -*- coding: utf8 -*-
+# coding: utf8
 from setuptools import setup, find_packages
 
 
 setup(
     name='django-revisionfield',
-    version='0.2.3.dev',
-    description = 'An model field that auto increments every time the model is'
-                  ' saved',
+    version='0.2.3',
+    description='An model field that auto increments every time the model is'
+                ' saved',
 
     author='Bradley Ayers',
     author_email='bradley.ayers@gmail.com',
@@ -16,13 +16,13 @@ setup(
     packages=find_packages(),
 
     install_requires=['Django >=1.2'],
-    tests_require=['Django >=1.2', 'Attest >=0.5.3', 'django-attest >=0.2.2',
+    tests_require=['Django >=1.2', 'django-attest >=0.2.2',
                    'unittest-xml-reporting', 'pylint'],
 
     test_loader='tests:loader',
     test_suite='tests.everything',
 
-    classifiers = [
+    classifiers=[
         'Environment :: Web Environment',
         'Framework :: Django',
         'Intended Audience :: Developers',
